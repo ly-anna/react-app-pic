@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => (
-  <nav className="navbar">
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <NavLink to="/">
       <button className="btn btn-link" type="button">
         Main

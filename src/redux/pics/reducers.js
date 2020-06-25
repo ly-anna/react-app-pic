@@ -1,8 +1,11 @@
- 
-import { PICS_REQUEST, PICS_REQUEST_SUCCESS, PICS_REQUEST_FAILURE } from './types';
+import {
+  PICS_REQUEST,
+  PICS_REQUEST_SUCCESS,
+  PICS_REQUEST_FAILURE,
+} from "./types";
 
 const initialState = {
-  url: '',
+  url: "",
   loading: false,
   error: false,
 };
@@ -10,20 +13,20 @@ const initialState = {
 const picsReducer = (state = initialState, action) => {
   switch (action.type) {
     case PICS_REQUEST:
-      return { 
-        url: '',
+      return {
+        url: "",
         loading: true,
-        error: false, 
+        error: false,
       };
     case PICS_REQUEST_SUCCESS:
-      return { 
+      return {
         url: action.url,
         loading: false,
         error: false,
-       };
+      };
     case PICS_REQUEST_FAILURE:
-      return { 
-        url: '',
+      return {
+        url: "",
         loading: false,
         error: true,
       };
