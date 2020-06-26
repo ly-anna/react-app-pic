@@ -8,28 +8,17 @@ const initialState = {
   url: "",
   loading: false,
   error: false,
+  pics: [],
 };
 
 const picsReducer = (state = initialState, action) => {
   switch (action.type) {
     case PICS_REQUEST:
-      return {
-        url: "",
-        loading: true,
-        error: false,
-      };
+      return { ...state, loading: true }
     case PICS_REQUEST_SUCCESS:
-      return {
-        url: action.url,
-        loading: false,
-        error: false,
-      };
+      return { ...state, url: action.payload.url, loading: false, pics: [...state.pics, action.payload]}
     case PICS_REQUEST_FAILURE:
-      return {
-        url: "",
-        loading: false,
-        error: true,
-      };
+      return { ...state, loading: false, error: true };
     default:
       return state;
   }

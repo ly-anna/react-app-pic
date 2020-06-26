@@ -13,7 +13,11 @@ function* fetchPicAsync() {
     const data = yield call(() => {
       return fetch(URL).then((res) => res.json());
     });
-    yield put(requestPicSuccess(data.data));
+    const url = data.data.image_url;
+    const id = data.data.id;
+    const name = data.data.username;
+    const payload = {id, url, name, time: new Date() }
+    yield put(requestPicSuccess(payload));
   } catch (error) {
     yield put(requestPicError());
   }

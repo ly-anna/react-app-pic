@@ -10,7 +10,8 @@ export const requestPic = () => {
 };
 
 export const requestPicSuccess = (data) => {
-  return { type: PICS_REQUEST_SUCCESS, url: data.fixed_height_downsampled_url };
+  return { type: PICS_REQUEST_SUCCESS, 
+  payload: data };
 };
 
 export const requestPicError = () => {

@@ -15,6 +15,5 @@ function App() {
 
 
 export default connect((state) => {
-  console.log(state);
   return state;
 })(App);
