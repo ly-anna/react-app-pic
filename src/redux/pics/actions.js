@@ -1,23 +1,29 @@
 import {
-  PICS_REQUEST,
-  PICS_REQUEST_SUCCESS,
-  PICS_REQUEST_FAILURE,
-  PICS_FETCH,
+  PIC_REQUEST,
+  PIC_REQUEST_SUCCESS,
+  PIC_REQUEST_FAILURE,
+  PIC_FETCH,
+  PIC_DELETE,
 } from "./types";
 
 export const requestPic = () => {
-  return { type: PICS_REQUEST };
+  return { type: PIC_REQUEST };
 };
 
 export const requestPicSuccess = (data) => {
-  return { type: PICS_REQUEST_SUCCESS, 
-  payload: data };
+  return { type: PIC_REQUEST_SUCCESS, 
+    payload: data };
 };
 
 export const requestPicError = () => {
-  return { type: PICS_REQUEST_FAILURE };
+  return { type: PIC_REQUEST_FAILURE };
 };
 
 export const fetchPic = () => {
-  return { type: PICS_FETCH };
+  return { type: PIC_FETCH };
 };
+
+export const deletePic = (data) => {
+  return { type: PIC_DELETE, 
+    payload: data  }
+}

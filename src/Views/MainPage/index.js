@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { fetchPic } from "../../redux/pics/actions";
+import Pic from '../../Components/Pic'
 
 class Main extends Component {
   componentDidMount() {
@@ -15,23 +16,14 @@ class Main extends Component {
     return (
       <div>
         <h1>Are you ready?</h1>
-        <div>
-          <button
-            className="btn btn-primary btn-lg mb-2"
-            onClick={() => this.props.dispatch(fetchPic())}
-          >
-            Show Pic
-          </button>
-          {loading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>Error, try again</p>
-          ) : (
-            <p>
-              <img src={url} alt="pic" />
-            </p>
-          )}
-        </div>
+        <button
+          className="btn btn-primary btn-lg mb-2"
+          onClick={() => this.props.dispatch(fetchPic())}
+        >
+          Show Pic
+        </button>
+
+        <Pic url={url} loading={loading} error={error}/>
       </div>
     );
   }

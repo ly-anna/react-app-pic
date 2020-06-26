@@ -1,10 +1,10 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { requestPic, requestPicSuccess, requestPicError } from "./actions";
-import { PICS_FETCH } from "./types";
+import { PIC_FETCH } from "./types";
 import { URL } from "../../constants";
 
 export function* watchFetchPic() {
-  yield takeEvery(PICS_FETCH, fetchPicAsync);
+  yield takeEvery(PIC_FETCH, fetchPicAsync);
 }
 
 function* fetchPicAsync() {
@@ -16,7 +16,7 @@ function* fetchPicAsync() {
     const url = data.data.image_url;
     const id = data.data.id;
     const name = data.data.username;
-    const payload = {id, url, name, time: new Date() }
+    const payload = {id, url, name, time: new Date().toLocaleString() }
     yield put(requestPicSuccess(payload));
   } catch (error) {
     yield put(requestPicError());
