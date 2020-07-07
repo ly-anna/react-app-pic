@@ -18,12 +18,12 @@ class History extends Component {
       <h1>History</h1>
       <div>
         {pics.map((p, idx) => (
-          <div key={p.id}>
-          <Pic key={p.id+idx} id={p.id} url={p.url} loading={p.loading} error={p.error}/>
-          <p>{p.name} </p>
-          <p>{p.time} </p>
-          <button className="btn btn-danger mb-5" onClick={() => this.handleDelete(p.id)}>Delete</button>         
-          </div>
+          <React.Fragment key={p.id}>
+            <Pic key={p.id+idx} id={p.id} url={p.url} loading={p.loading} error={p.error}/>
+            <p>{p.name} </p>
+            <p>{p.time} </p>
+            <button className="btn btn-danger mb-5" onClick={() => this.handleDelete(p.id)}>Delete</button>         
+          </React.Fragment>
         ))}
       </div>
     </div>)
